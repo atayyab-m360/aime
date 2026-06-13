@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AIME — AI & The Muslim Economy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0a1628;
+      --navy2: #f0f9f8;
+      --teal: #2a9d8f;
+      --teal-light: #1a7a6e;
+      --gold: #b8860b;
+      --gold-light: #c9a84c;
+      --white: #ffffff;
+      --gray: #4b5563;
+      --dark: #0f172a;
+      --border: #e2e8f0;
+      --bg: #f8fafc;
+    }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--white); color: var(--dark); line-height: 1.6; }
+
+    nav {
+      display: flex; justify-content: center; align-items: center;
+      padding: 24px 40px; border-bottom: 1px solid #e2e8f0; background: var(--white);
+      position: sticky; top: 0; z-index: 100; box-shadow: 0 1px 8px #0a16280a;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 14px; }
+    .nav-logo img { height: 48px; width: 48px; object-fit: contain; border-radius: 8px; }
+    .nav-logo-name { font-size: 22px; font-weight: 900; letter-spacing: 3px; color: var(--dark); }
+    .nav-logo-sub { font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); }
+
+    .hero {
+      text-align: center; padding: 90px 24px 70px;
+      max-width: 800px; margin: 0 auto; position: relative;
+      background: linear-gradient(180deg, #f0fdfb 0%, #ffffff 100%);
+    }
+    .hero::before {
+      content: none;
+    }
+    .hero-badge {
+      display: inline-block; background: #2a9d8f22; color: var(--teal-light);
+      border: 1px solid #2a9d8f44; border-radius: 20px; padding: 6px 16px;
+      font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 28px;
+    }
+    .hero h1 {
+      font-size: clamp(34px, 5.5vw, 60px); font-weight: 900;
+      line-height: 1.1; letter-spacing: -2px; margin-bottom: 24px; color: var(--dark);
+    }
+    .hero h1 em {
+      font-style: normal;
+      background: linear-gradient(135deg, var(--teal-light), var(--gold-light));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hero p { font-size: 18px; color: #4b5563; max-width: 600px; margin: 0 auto 48px; line-height: 1.85; }
+
+    .email-form { display: flex; gap: 10px; max-width: 480px; margin: 0 auto 12px; flex-wrap: wrap; justify-content: center; }
+    .email-input {
+      flex: 1; min-width: 240px; padding: 14px 18px; border-radius: 10px;
+      border: 1.5px solid #2a9d8f66; background: var(--white); color: var(--dark);
+      font-size: 15px; outline: none; font-family: inherit; transition: border-color .2s;
+    }
+    .email-input::placeholder { color: #64748b; }
+    .email-input:focus { border-color: var(--teal); }
+    .email-btn {
+      padding: 14px 24px; border-radius: 10px; border: none;
+      background: linear-gradient(135deg, var(--teal), #1a7a6e);
+      color: var(--white); font-size: 15px; font-weight: 700;
+      cursor: pointer; font-family: inherit; transition: opacity .2s; white-space: nowrap;
+    }
+    .email-btn:hover { opacity: .88; }
+    .form-note { font-size: 12px; color: #475569; text-align: center; }
+
+    /* FOR WHO */
+    .forwho {
+      background: #f0fdfb; border-top: 1px solid #ccede9; border-bottom: 1px solid #ccede9;
+      padding: 70px 24px;
+    }
+    .forwho-inner { max-width: 860px; margin: 0 auto; text-align: center; }
+    .section-tag { font-size: 11px; font-weight: 800; letter-spacing: 2.5px; text-transform: uppercase; color: var(--teal-light); margin-bottom: 14px; }
+    .forwho-inner h2 { font-size: clamp(24px, 3vw, 38px); font-weight: 900; letter-spacing: -1px; margin-bottom: 16px; color: var(--dark); }
+    .forwho-inner > p { font-size: 16px; color: #4b5563; max-width: 620px; margin: 0 auto 40px; line-height: 1.8; }
+    .who-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
+    .who-pill {
+      background: var(--white); border: 1.5px solid #ccede9; border-radius: 12px;
+      padding: 16px 12px; font-size: 14px; font-weight: 600; color: var(--dark);
+      box-shadow: 0 1px 4px #2a9d8f11;
+    }
+    .who-pill span { display: block; font-size: 24px; margin-bottom: 8px; }
+
+    /* NOT A TECH SHOW */
+    .mission { padding: 80px 24px; max-width: 860px; margin: 0 auto; background: var(--white); }
+    .mission-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 40px; }
+    .mission-card {
+      border-radius: 14px; padding: 28px; position: relative; overflow: hidden;
+    }
+    .mission-card.not { background: #ef444410; border: 1px solid #ef444422; }
+    .mission-card.yes { background: #2a9d8f10; border: 1px solid #2a9d8f33; }
+    .mission-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    }
+    .mission-card.not::before { background: #ef4444; }
+    .mission-card.yes::before { background: linear-gradient(90deg, var(--teal), var(--gold)); }
+    .mission-label { font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px; }
+    .mission-card.not .mission-label { color: #ef4444; }
+    .mission-card.yes .mission-label { color: var(--teal-light); }
+    .mission-item { display: flex; gap: 10px; margin-bottom: 12px; font-size: 14px; color: #4b5563; line-height: 1.5; align-items: flex-start; }
+    .mission-item:last-child { margin-bottom: 0; }
+
+    /* TOPICS */
+    .topics { background: #f8fafc; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; padding: 80px 24px; }
+    .topics-inner { max-width: 860px; margin: 0 auto; text-align: center; }
+    .topics-inner h2 { font-size: clamp(24px, 3vw, 38px); font-weight: 900; letter-spacing: -1px; margin-bottom: 40px; color: var(--dark); }
+    .topics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; text-align: left; }
+    .topic-card {
+      background: var(--white); border: 1.5px solid #e2e8f0; border-radius: 14px; padding: 22px;
+      position: relative; overflow: hidden; box-shadow: 0 1px 4px #0001;
+    }
+    .topic-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--teal), var(--gold)); }
+    .topic-icon { font-size: 26px; margin-bottom: 10px; }
+    .topic-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 6px; color: var(--dark); }
+    .topic-card p { font-size: 13px; color: #4b5563; line-height: 1.6; }
+
+    /* HOST */
+    .host { padding: 80px 24px; max-width: 700px; margin: 0 auto; text-align: center; background: var(--white); }
+    .host-avatar {
+      width: 80px; height: 80px; background: linear-gradient(135deg, var(--teal), var(--gold));
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 32px; margin: 0 auto 20px;
+    }
+    .host h2 { font-size: 26px; font-weight: 900; margin-bottom: 4px; color: var(--dark); }
+    .host-title { font-size: 12px; color: var(--gold); font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 20px; }
+    .host p { font-size: 15px; color: #4b5563; line-height: 1.85; margin-bottom: 14px; }
+    .host-quote {
+      margin-top: 28px; padding: 20px 24px; background: #f0fdfb;
+      border-left: 3px solid var(--teal); border-radius: 0 10px 10px 0;
+      font-size: 16px; font-style: italic; color: #374151; line-height: 1.7;
+      text-align: left;
+    }
+
+    /* LISTEN */
+    .listen { background: #f0fdfb; border-top: 1px solid #ccede9; border-bottom: 1px solid #ccede9; padding: 70px 24px; text-align: center; }
+    .listen h2 { font-size: 14px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--teal-light); margin-bottom: 20px; }
+    .platform-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .platform-btn {
+      display: flex; align-items: center; gap: 8px; padding: 12px 22px;
+      border-radius: 10px; background: var(--white); border: 1.5px solid #ccede9;
+      color: var(--dark); text-decoration: none; font-size: 14px; font-weight: 600;
+      transition: border-color .2s, background .2s; box-shadow: 0 1px 4px #0001;
+    }
+    .platform-btn:hover { border-color: var(--teal); background: #f0fdfb; }
+
+    /* VISION */
+    .vision { padding: 80px 24px; max-width: 760px; margin: 0 auto; text-align: center; background: var(--white); }
+    .vision h2 { font-size: clamp(24px, 3vw, 38px); font-weight: 900; letter-spacing: -1px; margin-bottom: 16px; color: var(--dark); }
+    .vision h2 em { font-style: normal; color: var(--gold-light); }
+    .vision p { font-size: 16px; color: #4b5563; line-height: 1.85; margin-bottom: 14px; }
+    .vision-pills { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 28px; }
+    .vision-pill {
+      background: #f0fdfb; border: 1.5px solid #ccede9; border-radius: 20px;
+      padding: 8px 16px; font-size: 13px; font-weight: 600; color: var(--teal-light);
+    }
+
+    /* BOTTOM CTA */
+    .bottom-cta { text-align: center; padding: 80px 24px 60px; background: linear-gradient(180deg, #f0fdfb, #ffffff); border-top: 1px solid #ccede9; }
+    .bottom-cta h2 { font-size: clamp(28px, 4vw, 44px); font-weight: 900; letter-spacing: -1px; margin-bottom: 16px; color: var(--dark); }
+    .bottom-cta h2 em { font-style: normal; color: var(--gold-light); }
+    .bottom-cta p { font-size: 16px; color: #4b5563; margin-bottom: 36px; max-width: 480px; margin-left: auto; margin-right: auto; }
+
+    footer { text-align: center; padding: 24px; color: #9ca3af; font-size: 13px; border-top: 1px solid #e2e8f0; background: var(--white); }
+    footer span { color: var(--gold); }
+
+    @media (max-width: 640px) {
+      .mission-grid { grid-template-columns: 1fr; }
+      nav { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-logo">
+      <img src="https://i.imgur.com/gQPXvV5.png" alt="AIME Logo" />
+      <div>
+        <div class="nav-logo-name">AIME</div>
+        <div class="nav-logo-sub">AI & The Muslim Economy</div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-badge">🎙️ Podcast · Launching Soon</div>
+    <h1>Where the Muslim community<br>comes to <em>figure out AI</em></h1>
+    <p>Practically. Ethically. On their own terms. AIME is not a tech show for engineers — it's a real conversation for everyday people trying to understand what AI means for their work, their business, and their community right now.</p>
+    <div class="email-form">
+      <input class="email-input" type="email" placeholder="Enter your email address" />
+      <button class="email-btn" onclick="handleSubscribe()">Get Notified 🔔</button>
+    </div>
+    <div class="form-note">No spam. Just episode drops and community updates.</div>
+  </div>
+
+  <!-- FOR WHO -->
+  <div class="forwho">
+    <div class="forwho-inner">
+      <div class="section-tag">Who It's For</div>
+      <h2>Built for the full Muslim community</h2>
+      <p>Whether you run a business, lead a nonprofit, teach at a school, serve a mosque, or just want to stay informed — AIME is your space.</p>
+      <div class="who-grid">
+        <div class="who-pill"><span>🏢</span>Business Owners</div>
+        <div class="who-pill"><span>🕌</span>Mosques & Islamic Centers</div>
+        <div class="who-pill"><span>🤝</span>Nonprofits</div>
+        <div class="who-pill"><span>🏫</span>Schools & Educators</div>
+        <div class="who-pill"><span>💼</span>Professionals</div>
+        <div class="who-pill"><span>🌱</span>Community Builders</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NOT A TECH SHOW -->
+  <div class="mission">
+    <div class="section-tag" style="text-align:center">The Difference</div>
+    <h2 style="text-align:center; font-size:clamp(24px,3vw,38px); font-weight:900; letter-spacing:-1px;">This is NOT a tech show</h2>
+    <div class="mission-grid">
+      <div class="mission-card not">
+        <div class="mission-label">❌ What AIME is NOT</div>
+        <div class="mission-item">🚫 <span>A show for engineers or developers</span></div>
+        <div class="mission-item">🚫 <span>Jargon-heavy AI theory</span></div>
+        <div class="mission-item">🚫 <span>Generic tech content with no Muslim lens</span></div>
+        <div class="mission-item">🚫 <span>Hype about what AI might do someday</span></div>
+      </div>
+      <div class="mission-card yes">
+        <div class="mission-label">✅ What AIME IS</div>
+        <div class="mission-item">✓ <span>Practical conversations for everyday people</span></div>
+        <div class="mission-item">✓ <span>Real stories from Muslim business owners</span></div>
+        <div class="mission-item">✓ <span>AI through the lens of values and community</span></div>
+        <div class="mission-item">✓ <span>What works right now, not someday</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOPICS -->
+  <div class="topics">
+    <div class="topics-inner">
+      <div class="section-tag">What We Cover</div>
+      <h2>The conversations that matter</h2>
+      <div class="topics-grid">
+        <div class="topic-card">
+          <div class="topic-icon">🏪</div>
+          <h3>Business & Operations</h3>
+          <p>How Muslim business owners are using AI to save time, serve customers better, and grow — without losing their values.</p>
+        </div>
+        <div class="topic-card">
+          <div class="topic-icon">🕌</div>
+          <h3>Mosques & Islamic Orgs</h3>
+          <p>How AI tools can help community organizations communicate better, serve more people, and run more efficiently.</p>
+        </div>
+        <div class="topic-card">
+          <div class="topic-icon">⚖️</div>
+          <h3>Ethics & Islamic Values</h3>
+          <p>Navigating AI in a way that aligns with Islamic principles — halal business, privacy, and community responsibility.</p>
+        </div>
+        <div class="topic-card">
+          <div class="topic-icon">🛠️</div>
+          <h3>Tools You Can Use Today</h3>
+          <p>No fluff. Every episode includes practical tools and takeaways that listeners can apply immediately.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOST -->
+  <div class="host">
+    <div class="host-avatar">🎙️</div>
+    <h2>Abdul Tayyab</h2>
+    <div class="host-title">Host · Entrepreneur · Community Builder</div>
+    <p>Abdul isn't positioning himself as an AI expert. He's a translator — someone who has been in the trenches of operations, leadership, and community building, and who can take complex ideas and make them feel real and usable.</p>
+    <p>As the founder of Core Response AI and Tayyab Consulting, he works daily with small businesses and community organizations to build AI-powered tools that actually solve problems.</p>
+    <div class="host-quote">
+      "AIME is the show I wish existed when I was trying to figure out how AI applied to my world. Not theory — real conversations, real people, real results."
+    </div>
+  </div>
+
+  <!-- LISTEN -->
+  <div class="listen">
+    <h2>🎧 Listen & Subscribe</h2>
+    <div class="platform-btns">
+      <a href="#" class="platform-btn">🎵 Spotify</a>
+      <a href="#" class="platform-btn">🎙️ Apple Podcasts</a>
+      <a href="#" class="platform-btn">▶️ YouTube</a>
+      <a href="#" class="platform-btn">☁️ SoundCloud</a>
+    </div>
+  </div>
+
+  <!-- VISION -->
+  <div class="vision">
+    <div class="section-tag">The Bigger Vision</div>
+    <h2>More than a podcast.<br>A <em>trusted ecosystem</em>.</h2>
+    <p>AIME starts as a podcast but the vision is bigger — to become the trusted voice at the intersection of AI, business, and Muslim community development.</p>
+    <p>The goal is a full ecosystem where the Muslim community can learn, connect, and grow together in the age of AI.</p>
+    <div class="vision-pills">
+      <div class="vision-pill">🎙️ Podcast</div>
+      <div class="vision-pill">📚 Webinars</div>
+      <div class="vision-pill">🛠️ Workshops</div>
+      <div class="vision-pill">🤝 Community</div>
+      <div class="vision-pill">📋 Resources</div>
+    </div>
+  </div>
+
+  <!-- BOTTOM CTA -->
+  <div class="bottom-cta">
+    <div class="section-tag">Join the Community</div>
+    <h2>Be part of the<br><em>conversation</em></h2>
+    <p>Get notified when AIME launches and join a community of Muslim professionals, business owners, and community builders figuring out AI together.</p>
+    <div class="email-form">
+      <input class="email-input" type="email" placeholder="Your email address" />
+      <button class="email-btn" onclick="handleSubscribe()">Join the Community</button>
+    </div>
+    <div class="form-note" style="margin-top:10px">No spam. Unsubscribe anytime.</div>
+  </div>
+
+  <footer>
+    © 2026 <span>AIME</span> · AI & The Muslim Economy · theaime.ai
+  </footer>
+
+  <script>
+    function handleSubscribe() {
+      const inputs = document.querySelectorAll('.email-input');
+      const filled = Array.from(inputs).find(i => i.value.trim());
+      if (!filled || !filled.value.includes('@')) {
+        alert('Please enter a valid email address.');
+        return;
+      }
+      alert('You\'re in! We\'ll notify you when AIME launches. جزاك الله خيرًا 🌙');
+      inputs.forEach(i => i.value = '');
+    }
+  </script>
+
+</body>
+</html>
