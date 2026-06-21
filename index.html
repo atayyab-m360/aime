@@ -288,10 +288,10 @@
   .contrast-item .mark { flex-shrink: 0; font-size: 16px; }
 
   /* TOPICS */
-  .topics-section { background: var(--navy); }
-  .topics-section .section-eyebrow { color: var(--gold); opacity: 0.8; }
-  .topics-section .section-title { color: var(--white); }
-  .topics-section .section-title em { color: var(--gold); }
+  .topics-section { background: var(--white); }
+  .topics-section .section-eyebrow { color: var(--teal); }
+  .topics-section .section-title { color: var(--navy); }
+  .topics-section .section-title em { color: var(--teal); font-style: italic; }
   .topics-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -299,16 +299,16 @@
     margin-top: 56px;
   }
   .topic-card {
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.12);
+    background: var(--light);
+    border: 1px solid #d1ece9;
     border-radius: 16px;
     padding: 32px 28px;
     transition: all 0.2s;
   }
-  .topic-card:hover { background: rgba(42,157,143,0.12); border-color: rgba(42,157,143,0.5); }
+  .topic-card:hover { background: #e6f7f5; border-color: var(--teal); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(42,157,143,0.12); }
   .topic-icon { font-size: 2rem; margin-bottom: 16px; }
-  .topic-card h3 { font-size: 1rem; font-weight: 600; color: var(--white); margin-bottom: 10px; }
-  .topic-card p { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.65; font-weight: 300; }
+  .topic-card h3 { font-size: 1rem; font-weight: 600; color: var(--navy); margin-bottom: 10px; }
+  .topic-card p { font-size: 13px; color: var(--gray); line-height: 1.65; font-weight: 400; }
 
   /* HOST */
   .host-section { background: var(--light); }
@@ -444,11 +444,11 @@
 
   /* EMAIL FORM */
   .signup-section {
-    background: var(--navy);
+    background: var(--light);
     text-align: center;
   }
-  .signup-section .section-title { color: var(--white); margin-left: auto; margin-right: auto; }
-  .signup-section .section-sub { color: rgba(255,255,255,0.65); margin: 0 auto 40px; text-align: center; }
+  .signup-section .section-title { color: var(--navy); margin-left: auto; margin-right: auto; }
+  .signup-section .section-sub { color: var(--gray); margin: 0 auto 40px; text-align: center; }
   .email-form {
     display: flex;
     gap: 12px;
@@ -459,42 +459,46 @@
     flex: 1;
     padding: 14px 20px;
     border-radius: 10px;
-    border: 1px solid rgba(255,255,255,0.2);
-    background: rgba(255,255,255,0.08);
-    color: var(--white);
+    border: 1.5px solid #d1ece9;
+    background: var(--white);
+    color: var(--dark);
     font-family: inherit;
     font-size: 14px;
     outline: none;
     transition: border 0.2s;
   }
-  .email-form input::placeholder { color: rgba(255,255,255,0.4); }
-  .email-form input:focus { border-color: var(--gold); }
-  .form-note { font-size: 12px; color: rgba(255,255,255,0.4); }
+  .email-form input::placeholder { color: #9ca3af; }
+  .email-form input:focus { border-color: var(--teal); }
+  .form-note { font-size: 12px; color: var(--gray); }
 
   /* FOOTER */
   footer {
-    background: var(--black);
-    padding: 48px;
+    background: var(--white);
+    border-top: 1px solid var(--border);
+    padding: 56px 48px;
     text-align: center;
   }
-  .footer-logo { height: 60px; margin-bottom: 16px; }
+  .footer-logo { height: 60px; margin-bottom: 20px; }
   .footer-tagline {
-    font-size: 13px;
-    color: rgba(255,255,255,0.5);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--navy);
     margin-bottom: 8px;
+    letter-spacing: 0.01em;
   }
   .footer-powered {
-    font-size: 11px;
-    color: rgba(255,255,255,0.3);
-    letter-spacing: 0.05em;
+    font-size: 12px;
+    color: var(--gray);
+    letter-spacing: 0.03em;
   }
-  .footer-powered a { color: rgba(255,255,255,0.45); text-decoration: none; }
-  .footer-powered a:hover { color: var(--gold); }
+  .footer-powered a { color: var(--teal); text-decoration: none; font-weight: 500; }
+  .footer-powered a:hover { color: #1a7a6e; }
   .footer-divider {
     width: 40px;
-    height: 1px;
-    background: rgba(255,255,255,0.12);
+    height: 2px;
+    background: var(--teal);
     margin: 20px auto;
+    border-radius: 2px;
   }
 
   @media (max-width: 768px) {
@@ -683,8 +687,8 @@
 <!-- SIGNUP -->
 <section class="signup-section" id="signup">
   <div class="container">
-    <div class="section-eyebrow" style="color: #c9a84c; text-align:center;">Join the Community</div>
-    <div class="section-title" style="text-align:center;">Be part of the<br><em style="color:#c9a84c; font-style:italic;">conversation</em></div>
+    <div class="section-eyebrow" style="color: var(--teal); text-align:center;">Join the Community</div>
+    <div class="section-title" style="text-align:center;">Be part of the<br><em style="color:var(--teal); font-style:italic;">conversation</em></div>
     <p class="section-sub">Get notified when AIME launches and join a community of Muslim professionals, business owners, and community builders figuring out AI together.</p>
     <div class="email-form">
       <input type="email" placeholder="your@email.com">
