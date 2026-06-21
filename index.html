@@ -47,7 +47,7 @@
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
   }
-  .nav-logo img { height: 36px; }
+  .nav-logo img { height: 54px; }
   .nav-links {
     display: flex;
     gap: 36px;
@@ -63,14 +63,14 @@
   }
   .nav-links a:hover { color: var(--navy); }
   .nav-cta {
-    background: var(--navy);
+    background: var(--teal);
     color: var(--white) !important;
     padding: 10px 22px;
     border-radius: 8px;
     font-weight: 600 !important;
     transition: background 0.2s !important;
   }
-  .nav-cta:hover { background: var(--teal) !important; color: var(--white) !important; }
+  .nav-cta:hover { background: #1a7a6e !important; color: var(--white) !important; }
 
   /* HERO */
   .hero {
@@ -107,9 +107,9 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: rgba(245, 158, 11, 0.18);
-    border: 1px solid rgba(245, 158, 11, 0.4);
-    color: var(--gold);
+    background: rgba(42, 157, 143, 0.18);
+    border: 1px solid rgba(42, 157, 143, 0.45);
+    color: #7dd4cc;
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 0.1em;
@@ -118,7 +118,7 @@
     border-radius: 100px;
     margin-bottom: 28px;
   }
-  .eyebrow::before { content: ''; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; animation: pulse 2s infinite; }
+  .eyebrow::before { content: ''; width: 6px; height: 6px; background: #2a9d8f; border-radius: 50%; animation: pulse 2s infinite; }
   @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.3)} }
 
   .hero h1 {
@@ -144,8 +144,8 @@
   }
   .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
   .btn-primary {
-    background: var(--gold);
-    color: var(--dark);
+    background: var(--teal);
+    color: var(--white);
     padding: 14px 30px;
     border-radius: 10px;
     font-size: 15px;
@@ -155,7 +155,7 @@
     border: none; cursor: pointer;
     letter-spacing: 0.01em;
   }
-  .btn-primary:hover { background: #c9a84c; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(184,134,11,0.35); }
+  .btn-primary:hover { background: #1a7a6e; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(42,157,143,0.35); }
   .btn-ghost {
     background: transparent;
     color: var(--white);
@@ -305,7 +305,7 @@
     padding: 32px 28px;
     transition: all 0.2s;
   }
-  .topic-card:hover { background: rgba(255,255,255,0.1); border-color: rgba(184,134,11,0.4); }
+  .topic-card:hover { background: rgba(42,157,143,0.12); border-color: rgba(42,157,143,0.5); }
   .topic-icon { font-size: 2rem; margin-bottom: 16px; }
   .topic-card h3 { font-size: 1rem; font-weight: 600; color: var(--white); margin-bottom: 10px; }
   .topic-card p { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.65; font-weight: 300; }
@@ -379,7 +379,7 @@
   }
   .host-quote {
     background: var(--white);
-    border-left: 3px solid var(--gold);
+    border-left: 3px solid var(--teal);
     border-radius: 0 12px 12px 0;
     padding: 20px 24px;
     font-size: 14px;
@@ -438,7 +438,7 @@
     text-align: center;
     transition: all 0.2s;
   }
-  .vision-item:hover { border-color: var(--gold); }
+  .vision-item:hover { border-color: var(--teal); }
   .vision-item .vicon { font-size: 1.8rem; margin-bottom: 12px; }
   .vision-item p { font-size: 13px; font-weight: 600; color: var(--navy); }
 
@@ -477,7 +477,7 @@
     padding: 48px;
     text-align: center;
   }
-  .footer-logo { height: 40px; margin-bottom: 16px; }
+  .footer-logo { height: 60px; margin-bottom: 16px; }
   .footer-tagline {
     font-size: 13px;
     color: rgba(255,255,255,0.5);
@@ -683,8 +683,8 @@
 <!-- SIGNUP -->
 <section class="signup-section" id="signup">
   <div class="container">
-    <div class="section-eyebrow" style="color: rgba(184,134,11,0.7); text-align:center;">Join the Community</div>
-    <div class="section-title" style="text-align:center;">Be part of the<br><em style="color:var(--gold)">conversation</em></div>
+    <div class="section-eyebrow" style="color: #c9a84c; text-align:center;">Join the Community</div>
+    <div class="section-title" style="text-align:center;">Be part of the<br><em style="color:#c9a84c; font-style:italic;">conversation</em></div>
     <p class="section-sub">Get notified when AIME launches and join a community of Muslim professionals, business owners, and community builders figuring out AI together.</p>
     <div class="email-form">
       <input type="email" placeholder="your@email.com">
